@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dios te bendiga, Échale un vistazo</title>
+    <link rel="icon" href="png/img90.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <button class="btn" style="--clr:#007bff">¡¡Bienvenido!!</button>
+
+    <a href="../01pagina01/index01.html" class="btn" style="--clr:#92D050">MODELO 1.0 VERSÍCULOS RV60</a>
+
+    <a href="../02pagina02/index02.html" class="btn" style="--clr:#FFFF00">MODELO 2.0 VERSÍCULOS RV60</a>
+
+    <a href="../03pagina03/index03.html" class="btn" style="--clr:#EE5626">Ir a MUSICA</a>
+
+    <a href="https://www.youtube.com/@flaviovalenciar/videos" class="btn" style="--clr:#ff0055">Ir a YouTube</a>
+
+    <script>
+        let buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            let text = button.textContent;
+            button.innerHTML = '';
+
+            for (let char of text){
+                let span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                button.appendChild(span);
+            }
+            let spans = button.querySelectorAll('span');
+
+            button.addEventListener('mouseenter', () => {
+                spans.forEach((span,index) => {
+                    setTimeout(() => {
+                        span.classList.add('hover');
+                    }, index * 50);
+                })
+            })
+
+            button.addEventListener('mouseleave', () => {
+                spans.forEach((span,index) => {
+                    setTimeout(() => {
+                        span.classList.remove('hover');
+                    }, index * 50);
+                })
+            })
+
+        })
+    </script>
+</body>
+</html>
